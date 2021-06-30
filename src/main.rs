@@ -1,4 +1,5 @@
 // Define modules
+mod models;
 mod utils;
 
 // Import modules
