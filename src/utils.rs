@@ -47,17 +47,23 @@ pub fn get_data(username: String) -> Root {
     let body = some_more_data;
 
     let response = minreq::post("https://graphql.anilist.co")
-    .with_header("content-type", "application/json")
-    .with_json(&body)
-    .unwrap()
-    .send()
-    .unwrap();
+        .with_header("content-type", "application/json")
+        .with_json(&body)
+        .unwrap()
+        .send()
+        .unwrap();
 
     let data = response.json::<Root>();
 
     match data {
         Ok(data) => data,
-        Err(err) => panic!("{}", err.to_string()),
+        Err(err) => {
+            println!(
+                "Looks like the username is incorrect or there's some issue with your internet.",
+            );
+            let _ = err;
+            std::process::abort()
+        }
     }
     // data.unwrap()
 }
