@@ -58,4 +58,7 @@ fn main() {
             count += 1;
         }
     }
+
+    println!("Press any key to continue");
+       io::stdin().read_line(&mut String::new()).unwrap();
 }
