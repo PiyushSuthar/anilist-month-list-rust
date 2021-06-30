@@ -1,6 +1,10 @@
+// Define modules
 mod utils;
+
+// Import modules
 use utils::get_data;
 
+// Main function
 fn main() {
     let data = get_data("piyushsthr".to_string());
     // let da = serde_json::to_string(&data).unwrap();
